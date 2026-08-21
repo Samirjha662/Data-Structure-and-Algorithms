@@ -19,11 +19,14 @@ class Solution {
                 inner.add(nums[j]);
                 inner.add(nums[k]);
                 outer.add(inner);
-            
+                
             while(j<k && nums[j]==nums[j+1]) j++;
             while(j<k && nums[k] ==nums[k-1]) k--;
+            
+           
             j++;
             k--;
+            
             }
             else if(nums[i]+nums[j]+nums[k]>0){
                 k--;
