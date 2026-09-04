@@ -1,18 +1,35 @@
 class Solution {
-    public int majorityElement(int[] nums) {
+    // public int majorityElement(int[] nums) {
 
-        HashMap<Integer, Integer> map = new HashMap<>();
+    //     HashMap<Integer, Integer> map = new HashMap<>();
 
-        for(int i =0 ;i<nums.length ;i++){
-            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+    //     for(int i =0 ;i<nums.length ;i++){
+    //         map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+    //     }
+
+    //     return map.entrySet()
+    //     .stream()
+    //     .filter(entry -> entry.getValue()> nums.length/2)
+    //     .map(entry -> entry.getKey())
+    //     .findFirst()
+    //     .orElse(-1);
+      
+    // }
+    public int majorityElement(int[] nums){
+        int candidate = 0; 
+        int count =0;
+
+        for(int num : nums){
+            if(count==0){
+                 candidate = num ;
+                 count++;
+            }
+            else if(num ==candidate) count++;
+            else count --;
         }
 
-        return map.entrySet()
-        .stream()
-        .filter(entry -> entry.getValue()> nums.length/2)
-        .map(entry -> entry.getKey())
-        .findFirst()
-        .orElse(-1);
-      
+        return candidate;
     }
+
+
 }
