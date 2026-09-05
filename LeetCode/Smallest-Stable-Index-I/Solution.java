@@ -1,16 +1,24 @@
-[1,3,2,4,0]
-2
-[10,5,15,0,20]
-10
-[5,5,5,5,5,5]
-0
-[0,1,0,1,0,1]
-1
-[1,0,1,0,1,0]
-1
-[9,8,7,6,5,4,3,2,1,0]
-9
-[0,1,2,3,4,5,6,7,8,9]
-0
-[100,100,100,0,0,0]
-100
+1class Solution {
+2    public int firstStableIndex(int[] nums, int k) {
+3        int max = Integer.MIN_VALUE;
+4      
+5        
+6
+7        for(int i =0 ;i< nums.length ;i++){
+8            max = Math.max(max,nums[i]);
+9            int min =Integer.MAX_VALUE;
+10            
+11
+12            for(int j = i ;j< nums.length ;j++){
+13                min = Math.min(nums[j],min);
+14            }
+15
+16            if(max -min <= k) return i;
+17            
+18        }
+19        
+20
+21        return -1;
+22        
+23    }
+24}
