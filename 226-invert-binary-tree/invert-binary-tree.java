@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+    //BFS Solution
     public TreeNode invertTree(TreeNode root) {
         if(root ==null) return root;
         
@@ -21,7 +22,6 @@ class Solution {
         q.offer(root);
 
         while(!q.isEmpty()){
-            int size = q.size();
             TreeNode tempRoot = q.poll();
             
             TreeNode temp = tempRoot.left;
