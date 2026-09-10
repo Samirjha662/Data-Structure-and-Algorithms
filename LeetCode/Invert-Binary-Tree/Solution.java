@@ -17,15 +17,26 @@
 17    public TreeNode invertTree(TreeNode root) {
 18        if(root ==null) return root;
 19        
-20        TreeNode l = invertTree(root.left);
-21        TreeNode r = invertTree(root.right);
+20        Queue<TreeNode> q = new LinkedList<>();
+21        q.offer(root);
 22
-23        TreeNode temp = root.left;
-24        root.left = root.right;
-25        root.right = temp;
-26
-27       
-28
-29        return root;
-30    }
-31}
+23        while(!q.isEmpty()){
+24            int size = q.size();
+25            TreeNode tempRoot = q.poll();
+26            
+27            TreeNode temp = tempRoot.left;
+28            tempRoot.left = tempRoot.right;
+29            tempRoot.right = temp;
+30
+31            if(tempRoot.left != null){
+32                q.offer(tempRoot.left);
+33            }
+34
+35            if(tempRoot.right != null){
+36                q.offer(tempRoot.right);
+37            }
+38        }
+39
+40        return root;
+41    }
+42}
