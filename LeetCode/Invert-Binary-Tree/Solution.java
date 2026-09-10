@@ -14,14 +14,14 @@
 14 * }
 15 */
 16class Solution {
-17    public TreeNode invertTree(TreeNode root) {
-18        if(root ==null) return root;
-19        
-20        Queue<TreeNode> q = new LinkedList<>();
-21        q.offer(root);
-22
-23        while(!q.isEmpty()){
-24            int size = q.size();
+17    //BFS Solution
+18    public TreeNode invertTree(TreeNode root) {
+19        if(root ==null) return root;
+20        
+21        Queue<TreeNode> q = new LinkedList<>();
+22        q.offer(root);
+23
+24        while(!q.isEmpty()){
 25            TreeNode tempRoot = q.poll();
 26            
 27            TreeNode temp = tempRoot.left;
