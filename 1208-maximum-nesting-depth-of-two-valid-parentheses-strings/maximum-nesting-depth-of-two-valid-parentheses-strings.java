@@ -5,12 +5,12 @@ class Solution {
 
         for(int i =0; i<seq.length() ;i++){
             char ch = seq.charAt(i);
-            if(ch=='('){
-                count++;
+            if(ch==')'){
+                count--;
                 arr[i]=count%2;
             }else{
                 arr[i]=count%2;
-                count--;
+                count++;
             }
             
         }
